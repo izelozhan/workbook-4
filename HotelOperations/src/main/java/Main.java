@@ -1,11 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        Room room;
-        Reservation reservation;
+        Room newRoom;
         Employee employee;
+        Reservation reservation;
 
+        reservation = new Reservation("king", 3, true);
+        newRoom = new Room(1, false, false, reservation.getPrice() );
 
-
-
+        System.out.println("New Room Price is :" + reservation.getReservationTotal());
     }
 }

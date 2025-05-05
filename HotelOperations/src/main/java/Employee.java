@@ -14,15 +14,18 @@ public class Employee {
     }
 
     public double getTotalPay(){
+        double regular = getRegularHours() * payRate;
+        double overtime = getOvertimeHours() * payRate;
 
+        return  regular + overtime;
     }
 
     public double getRegularHours(){
-
+        return payRate;
     }
 
     public double getOvertimeHours(){
-
+    return payRate;
     }
 
 
