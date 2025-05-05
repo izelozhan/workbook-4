@@ -13,6 +13,9 @@ public class Reservation {
     }
 
     public void setRoomType(String roomType) {
+        if (!roomType.equalsIgnoreCase("king") && !roomType.equalsIgnoreCase("double")) {
+            throw new RuntimeException("Invalid room type!");
+        }
         this.roomType = roomType;
     }
 
@@ -32,7 +35,6 @@ public class Reservation {
         return price;
     }
 
-
     public boolean isWeekend() {
         return isWeekend;
     }
@@ -43,5 +45,9 @@ public class Reservation {
 
     public double getReservationTotal() {
         return getPrice() * numberOfNights;
+    }
+
+    public void setNumberOfNights(int numberOfNights){
+        this.numberOfNights = numberOfNights;
     }
 }

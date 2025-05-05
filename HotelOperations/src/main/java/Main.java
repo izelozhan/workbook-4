@@ -7,6 +7,5 @@ public class Main {
         reservation = new Reservation("king", 3, true);
         newRoom = new Room(1, false, false, reservation.getPrice() );
 
-        System.out.println("New Room Price is :" + reservation.getReservationTotal());
     }
 }
