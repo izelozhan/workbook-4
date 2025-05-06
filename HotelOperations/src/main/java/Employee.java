@@ -8,8 +8,8 @@ public class Employee {
     private double payRate;
     private double hoursWorked;
     private double regularHours;
-    private LocalDateTime punchIn;
-    private LocalDateTime punchOut;
+    private double punchIn;
+    private double punchOut;
 
     public Employee(int employeeId, String name, double payRate, String department, double regularHours) {
         this.employeeId = employeeId;
@@ -52,14 +52,17 @@ public class Employee {
         System.out.println("You worked between " + inTime + "/" + outTime + ". Hours worked: " + hoursWorked);
     }
 
-    public void punchIn(){
-        punchIn = LocalDateTime.now();
-        System.out.println("Punched in: " + punchIn);
+    public void punchTimeCard(double time){
+
     }
 
-    public void punchOut(){
-        punchOut = LocalDateTime.now();
-        System.out.println("Punched in: " + punchOut);
+    public void punchIn(double time){
+        punchIn = time;
+    }
+
+    public void punchOut(double time){
+        punchOut = time;
+        hoursWorked = hoursWorked + (punchOut - punchIn);
     }
 
 }
