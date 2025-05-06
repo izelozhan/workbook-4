@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Employee {
     private int employeeId;
     private String name;
@@ -5,6 +8,8 @@ public class Employee {
     private double payRate;
     private double hoursWorked;
     private double regularHours;
+    private LocalDateTime punchIn;
+    private LocalDateTime punchOut;
 
     public Employee(int employeeId, String name, double payRate, String department, double regularHours) {
         this.employeeId = employeeId;
@@ -12,6 +17,7 @@ public class Employee {
         this.payRate = payRate;
         this.department = department;
         this.regularHours = regularHours;
+
     }
 
     public double getTotalPay(){
@@ -41,11 +47,19 @@ public class Employee {
         System.out.println("Hello " + name + ", from " + department + " Team! Your paycheck is " + getTotalPay());
     }
 
-
     public void punchTimeCard(double inTime, double outTime){
         hoursWorked = outTime - inTime;
         System.out.println("You worked between " + inTime + "/" + outTime + ". Hours worked: " + hoursWorked);
     }
 
+    public void punchIn(){
+        punchIn = LocalDateTime.now();
+        System.out.println("Punched in: " + punchIn);
+    }
+
+    public void punchOut(){
+        punchOut = LocalDateTime.now();
+        System.out.println("Punched in: " + punchOut);
+    }
 
 }

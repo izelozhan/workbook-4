@@ -13,6 +13,14 @@ public class Main {
         Employee employee1 = new Employee(1234, "Izel Ozhan", 50, "Management", 40);
         employee1.punchTimeCard(9.00,17.00);
         employee1.showPayroll();
+        employee1.punchIn();
+        employee1.punchOut();
+
+        //HOTEL
+
+        Hotel hotel = new Hotel("Izelia", 10,20);
+        hotel.bookRoom(2,true);
+        hotel.getAvailableRooms();
 
 
     }
