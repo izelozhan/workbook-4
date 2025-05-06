@@ -6,12 +6,11 @@ public class Employee {
     private double hoursWorked;
     private double regularHours;
 
-    public Employee(int employeeId, String name, double payRate, String department, double hoursWorked, double regularHours) {
+    public Employee(int employeeId, String name, double payRate, String department, double regularHours) {
         this.employeeId = employeeId;
         this.name = name;
         this.payRate = payRate;
         this.department = department;
-        this.hoursWorked = hoursWorked;
         this.regularHours = regularHours;
     }
 
@@ -39,7 +38,13 @@ public class Employee {
     }
 
     public void showPayroll(){
-        System.out.println("Hello! " + name + "Your ID is" + employeeId + "from" + department + "your paycheck is " + getTotalPay());
+        System.out.println("Hello " + name + ", from " + department + " Team! Your paycheck is " + getTotalPay());
+    }
+
+
+    public void punchTimeCard(double inTime, double outTime){
+        hoursWorked = outTime - inTime;
+        System.out.println("You worked between " + inTime + "/" + outTime + ". Hours worked: " + hoursWorked);
     }
 
 

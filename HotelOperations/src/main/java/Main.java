@@ -1,11 +1,19 @@
 public class Main {
     public static void main(String[] args) {
-        Room newRoom;
-        Employee employee;
-        Reservation reservation;
+        //RESERVATION
+        Reservation reservation = new Reservation("king", 3, true);
 
-        reservation = new Reservation("king", 3, true);
-        newRoom = new Room(1, false, false, reservation.getPrice() );
+        //ROOM
+        Room newRoom = new Room(1, false, false, reservation.getPrice() );
+        newRoom.checkIn();
+        newRoom.checkOut();
+        newRoom.cleanRoom();
+
+        //EMPLOYEE
+        Employee employee1 = new Employee(1234, "Izel Ozhan", 50, "Management", 40);
+        employee1.punchTimeCard(9.00,17.00);
+        employee1.showPayroll();
+
 
     }
 }
