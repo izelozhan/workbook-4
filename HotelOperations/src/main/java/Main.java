@@ -5,15 +5,10 @@ public class Main {
 
         //ROOM
         Room newRoom = new Room(1, false, false, reservation.getPrice() );
-        newRoom.checkIn();
-        newRoom.checkOut();
-        newRoom.cleanRoom();
 
         //EMPLOYEE
         Employee employee1 = new Employee(1234, "Izel Ozhan", 50, "Management", 40);
-        employee1.punchTimeCard(9.00,17.00);
         employee1.showPayroll();
-
 
         //HOTEL
 
