@@ -7,7 +7,7 @@ class RoomTest {
     // Assert => write code to verify that method under test performed as expected
 
     @org.junit.jupiter.api.Test
-    void checkIn_RoomIsNotDirtyOrOccupied_True() {
+    void checkIn_RoomIsNotDirtyOrOccupied_False() {
         //Arrange
         Room room = new Room();
         room.setDirty(false);
@@ -15,7 +15,7 @@ class RoomTest {
         //Act
         boolean expected = room.checkIn();
         //Assert
-        assertTrue(expected);
+        assertFalse(expected);
     }
 
     @org.junit.jupiter.api.Test

@@ -2,7 +2,6 @@ public class Room {
     int numberOfBeds;
 
 
-
     boolean isDirty;
     boolean isOccupied;
     double price;
@@ -26,19 +25,20 @@ public class Room {
         return !isDirty && !isOccupied;
     }
 
-    public boolean checkIn(){
-    //once a room has been check-in, it should be occupied and marked as dirty.
-        if (!isOccupied || !isDirty){
+    public boolean checkIn() {
+        //once a room has been check-in, it should be occupied and marked as dirty.
+        if (isOccupied || isDirty) {
             System.out.println("Guest check in");
+            return false;
+        } else {
             isDirty = true;
             isOccupied = true;
             return true;
         }
-        return false;
     }
 
-    public boolean checkOut(){
-        if (isOccupied){
+    public boolean checkOut() {
+        if (isOccupied) {
             isOccupied = false;
             isDirty = true;
             System.out.println("Guest checked out. Room needs to be cleaned!");
@@ -50,8 +50,8 @@ public class Room {
 
     }
 
-    public boolean cleanRoom(){
-        if(isDirty){
+    public boolean cleanRoom() {
+        if (isDirty) {
             System.out.println("Room is clean!");
             isDirty = false;
             return true;
