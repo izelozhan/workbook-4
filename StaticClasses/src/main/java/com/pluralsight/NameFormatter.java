@@ -2,8 +2,8 @@ package com.pluralsight;
 
 public class NameFormatter {
 
-    private NameFormatter() {
-    }
+
+    private NameFormatter() {}
 
     public static String format(String prefix, String firstName, String middleName, String lastName, String suffix) {
         String fullName = "";
@@ -18,10 +18,10 @@ public class NameFormatter {
             fullName += middleName + " ";
         }
         if (lastName != null && !lastName.isEmpty()) {
-            fullName += lastName + " ";
+            fullName += lastName;
         }
         if (suffix != null && !suffix.isEmpty()) {
-            fullName += suffix + ", ";
+            fullName +=   ", " + suffix;
         }
 
         return fullName;
