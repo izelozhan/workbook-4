@@ -11,24 +11,43 @@ public class Game {
     }
 
     public void startGame(){
-        Scanner scanner = new Scanner(System.in);
+        String[] names = {"Izel", "Million", "Noah", "Gio"};
 
-        System.out.println("Welcome to the game! \n");
-        System.out.println("How many players?");
+        for(String name: names) {
+            Hand hand = new Hand();
+            for (int i = 0; i < 2; i++) {
+                Card currentCard = deck.deal();
+                hand.deal(currentCard);
+            }
+            Player player = new Player(hand, name);
+            players.add(player);
+        }
+        Player winner = null;
 
-        int numberOfPlayers = Integer.parseInt(scanner.nextLine());
-
-        for (int i = 0; i < numberOfPlayers; i++) {
-            System.out.println("Enter player " + (i + 1) + " name: "); //ndx 0, add +1
-            String playerName = scanner.nextLine();
-            players.add(new Player(playerName));
+        for(Player player: players) {
+            System.out.println("Player : " + player.getName() + " has " + player.getScore() );
+            if (player.getScore() > 21) {
+                continue;
+            }
+            if(winner == null) {
+                winner = player;
+            }
+            else {
+                if(player.getScore() > winner.getScore()) {
+                    winner = player;
+                }
+            }
         }
 
-        deck.shuffle();
-
-        for (Player player: players){
-            player.getHand().deal(deck.deal());
-            player.getHand().deal(deck.deal());
+        // Declare winner
+        System.out.println("\n\n");
+        if (winner == null) {
+            System.out.println("Everyone busted!");
         }
+        else {
+            System.out.println("The winner: " + winner.getName() + " with " + winner.getScore() + "🎉");
+        }
+
+
     }
 }

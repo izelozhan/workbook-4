@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-    public ArrayList<Card> cards;
+    private ArrayList<Card> cards;
 
     public Deck() {
         cards = new ArrayList<>();
@@ -17,19 +17,20 @@ public class Deck {
         }
     }
 
-    public void shuffle(){
+    public void shuffle() {
         Collections.shuffle(cards);
     }
 
-    public Card deal(){
-        if(!cards.isEmpty()){
-            return cards.remove(0);
+    public Card deal() {
+        if (cards.size() > 0) {
+            Card card = cards.remove(0);
+            return card;
         } else {
             return null;
         }
     }
 
-    public int getSize(){
+    public int getSize() {
         return cards.size();
     }
 }

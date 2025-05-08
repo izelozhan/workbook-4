@@ -1,39 +1,51 @@
 public class Card {
-    String suit;
-    String value;
-    boolean isFaceUp;
+    private String suit;
+    private String value;
+    private boolean isFaceUp;
 
-    public Card(String value, String suit) {
-        this.value = value;
+    public Card(String suit, String value) {
         this.suit = suit;
+        this.value = value;
+        this.isFaceUp = false;
     }
 
     public String getSuit() {
-        return suit;
+        if (isFaceUp) {
+            return suit;
+        } else {
+            return "#";
+        }
     }
 
     public String getValue() {
-        return value;
+        if (isFaceUp) {
+            return value;
+        } else {
+            return "#";
+        }
+    }
+
+    public int getPointValue() {
+        if (isFaceUp) {
+            switch (this.value) {
+                case "A":
+                    return 11;
+                case "K", "Q", "J":
+                    return 10;
+                default:
+                    return Integer.parseInt(this.value);
+            }
+
+        } else {
+            return 0;
+        }
     }
 
     public boolean isFaceUp() {
         return isFaceUp;
     }
 
-    public int getPointValue() {
-        if (isFaceUp) {
-            return switch (value) {
-                case "J", "Q", "K" -> 10;
-                case "A" -> 11;
-                default -> Integer.parseInt(value);
-            };
-        } else {
-            return 0;
-        }
+    public void flip() {
+        isFaceUp = !isFaceUp;
     }
-
-    public boolean flip() {
-        return isFaceUp = !isFaceUp;
-    }
-
 }

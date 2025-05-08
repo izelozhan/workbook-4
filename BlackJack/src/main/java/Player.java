@@ -1,23 +1,17 @@
 public class Player {
-    String name;
     Hand hand;
+    String name;
 
-    public Player(String name) {
+    public Player(Hand hand, String name) {
+        this.hand = hand;
         this.name = name;
-        this.hand = new Hand();
     }
 
-    public String getName(){
-        return name;
+    public int getScore() {
+        return this.hand.getValue();
     }
 
-    public Hand getHand(){
-        return hand;
+    public String getName() {
+        return this.name;
     }
-
-    public int getScore(){
-        return hand.getValue();
-    }
-
-
 }
